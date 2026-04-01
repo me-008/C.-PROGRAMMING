@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    int num, temp, digit, arr[20], i = 0, j, palindrome = 1;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    temp = num;
+
+    // Store digits in array
+    while (temp > 0) {
+        digit = temp % 10;
+        arr[i] = digit;
+        temp = temp / 10;
+        i++;
+    }
+
+    // Check palindrome
+    for (j = 0; j < i / 2; j++) {
+        if (arr[j] != arr[i - j - 1]) {
+            palindrome = 0;
+            break;
+        }
+    }
+
+    if (palindrome)
+        printf("%d is a Palindrome Number\n", num);
+    else
+        printf("%d is NOT a Palindrome Number\n", num);
+
+    return 0;
+}
